@@ -1,336 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Building — Floors & Offices</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Cloud Shop</title>
+
   <style>
-    :root{
-      --bg:#f4f7fb;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --accent:#0ea5a4;
-      --shadow: 0 6px 18px rgba(15,23,42,0.06);
-      --glass: rgba(255,255,255,0.6);
-      --gap:16px;
-      --floor-count:6; /* just informative */
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:linear-gradient(180deg,var(--bg),#eef2f7);
-      color:#0f172a;
-      -webkit-font-smoothing:antialiased;
-      padding:28px;
+    /* Animación suave de entrada */
+    body {
+      animation: fadeIn 0.5s ease-in-out;
     }
 
-    .wrap{
-      max-width:1100px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: 320px 1fr;
-      gap:28px;
-      align-items:start;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* sidebar */
-    .panel{
-      background:var(--card);
-      padding:18px;
-      border-radius:12px;
-      box-shadow:var(--shadow);
-    }
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#2563eb);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    h1{font-size:18px;margin:8px 0 0}
-    p.lead{margin:8px 0 0;color:var(--muted);font-size:13px}
-
-    .legend{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:var(--glass);font-size:13px}
-    .chip .sw{width:12px;height:12px;border-radius:4px;display:inline-block}
-    .sw.free{background:#e6f6f5}
-    .sw.occupied{background:#ffe7e6}
-    .sw.selected{background:var(--accent)}
-
-    /* building area */
-    .building{
-      display:flex;flex-direction:column;gap:12px;
+    /* Tarjeta moderna */
+    .card {
+      transition: 0.25s;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
     }
 
-    .floor{
-      display:grid;
-      grid-template-columns: 1fr 3fr;
-      gap:18px;
-      align-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.9));
-      padding:14px;
-      border-radius:12px;
-      box-shadow:var(--shadow);
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
     }
 
-    .floor-number{
-      font-weight:700;
-      font-size:18px;
-      text-align:center;
-      color:var(--accent);
-    }
-    .floor-meta{font-size:13px;color:var(--muted);text-align:center}
-
-    .offices{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:16px;
+    /* Inputs modernos */
+    input {
+      transition: 0.2s;
     }
 
-    .office{
-      background:linear-gradient(180deg, #fff, #fbfdff);
-      border-radius:10px;
-      padding:10px;
-      text-align:center;
-      border:15px solid rgba(15,23,42,0);
-      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-      cursor:default;
-      position:relative;
-      min-height:70px;
-      width: 160px;
-      display:flex;flex-direction:column;justify-content:center;gap:6px;
-    }
-    .office:hover{transform:translateY(-6px);box-shadow:0 18px 30px rgba(2,6,23,0.08)}
-
-    .office .sub{font-weight:700}
-    .office .label{font-size:12px;color:var(--muted)}
-
-    /* status badges */
-    .status{position:absolute;right:8px;top:8px;font-size:11px;padding:6px 8px;border-radius:999px}
-    .free{background:#ecfdf5;color:#065f46;border:1px solid rgba(6,95,70,0.06)}
-    .occ{background:#fff1f2;color:#9f1239;border:1px solid rgba(159,18,57,0.06)}
-    .sel{background:linear-gradient(90deg,var(--accent),#2563eb);color:white}
-
-    /* make first office a different size on small screens */
-    @media (max-width:900px){
-      .wrap{grid-template-columns:1fr;}
-      .offices{grid-template-columns:repeat(2,1fr)}
-      .floor{grid-template-columns:1fr;}
-      .floor-number{text-align:left}
-      .floor-meta{text-align:left}
+    input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+      transform: scale(1.02);
     }
 
-    /* small helper footer */
-    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+    /* Botón moderno */
+    button {
+      transition: 0.2s;
+    }
 
-    /* keyboard focus visibility */
-    .office:focus{outline:3px solid rgba(14,165,164,0.12)}
-    .office:active{transform:translateY(-2px)}
+    button:hover {
+      background-color: #1e40af !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    }
 
+    /* Link olvidaste contraseña */
+    p:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <aside class="panel">
-      <div class="brand">
-        <div class="logo">B</div>
-        <div>
-          <h1>Building Directory</h1>
-          <p class="lead">Quick identification of floors & offices — 4 offices per floor.</p>
-        </div>
-      </div>
 
-      <div class="legend">
-        <div class="chip"><span class="sw free"></span> Free</div>
-        <div class="chip"><span class="sw occupied"></span> Occupied</div>
-        <div class="chip"><span class="sw selected"></span> Selected</div>
-      </div>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
 
-      <hr style="margin:14px 0;border:none;border-top:1px solid rgba(2,6,23,0.04)">
-      <p style="font-size:13px;color:var(--muted)">How it works: Each floor shows four offices. Office numbers are generated as <strong>FloorNumber + OfficeNumber</strong> — e.g. <em>301</em> is Floor 3, Office 1.</p>
-    </aside>
+  <!-- LOGIN -->
+  <section id="login" class="max-w-md w-full bg-white p-8 rounded-2xl card">
 
-    <main>
-      <div class="building" role="list">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-700">
+      BIENVENIDO A <span class="text-blue-600">CLOUD SHOP</span>
+    </h2>
 
-        <!-- Repeat this .floor block for as many floors as you need -->
+    <!-- Inputs -->
+    <input type="text" placeholder="Usuario" class="w-full p-3 border rounded-lg mb-4" />
+    <input type="password" placeholder="Contraseña" class="w-full p-3 border rounded-lg mb-6" />
 
-        <!-- Piso 11 -->
-        <section class="floor" role="listitem" aria-label="Floor 6">
-          <div>
-            <div class="floor-number">Piso 11</div>
-            <div class="floor-meta">Executive Level</div>
-          </div>
-          <div class="offices">
-            <div class="office" tabindex="0" title="Office 601">              
-              <div class="sub">Secretaría General (SG)</div>
-              <div class="label">anexo 1500</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 602">
-              <div class="sub">Oficina General de Asesría Jurídica (OGAJ)</div>
-              <div class="label">anexo 1621</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 603">
-              <div class="sub">Gabinete de Asesore (GA)</div>
-              <div class="label">anexo 1614</div>
-            </div>
-          </div>
-        </section>
+    <!-- Botón -->
+    <button class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold"
+      onclick="window.location.href='inventario.html'">
+      INGRESAR
+    </button>
 
-        <!-- Floor 5 -->
-        <section class="floor" role="listitem" aria-label="Floor 5">
-          <div>
-            <div class="floor-number">Floor 5</div>
-            <div class="floor-meta">Management</div>
-          </div>
-          <div class="offices">
-            <div class="office" tabindex="0" title="Office 501">
-              <div class="status occ">Occupied</div>
-              <div class="label">501</div>
-              <div class="sub">Office 1</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 502">
-              <div class="status free">Free</div>
-              <div class="label">502</div>
-              <div class="sub">Office 2</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 503">
-              <div class="status occ">Occupied</div>
-              <div class="label">503</div>
-              <div class="sub">Office 3</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 504">
-              <div class="status free">Free</div>
-              <div class="label">504</div>
-              <div class="sub">Office 4</div>
-            </div>
-          </div>
-        </section>
+    <p class="text-center mt-4 text-blue-600 cursor-pointer">
+      ¿Olvidaste tu contraseña?
+    </p>
 
-        <!-- Floor 4 -->
-        <section class="floor" role="listitem" aria-label="Floor 4">
-          <div>
-            <div class="floor-number">Floor 4</div>
-            <div class="floor-meta">Departments</div>
-          </div>
-          <div class="offices">
-            <div class="office" tabindex="0" title="Office 401">
-              <div class="status free">Free</div>
-              <div class="label">401</div>
-              <div class="sub">Office 1</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 402">
-              <div class="status occ">Occupied</div>
-              <div class="label">402</div>
-              <div class="sub">Office 2</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 403">
-              <div class="status free">Free</div>
-              <div class="label">403</div>
-              <div class="sub">Office 3</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 404">
-              <div class="status occ">Occupied</div>
-              <div class="label">404</div>
-              <div class="sub">Office 4</div>
-            </div>
-          </div>
-        </section>
+  </section>
 
-        <!-- Floor 3 -->
-        <section class="floor" role="listitem" aria-label="Floor 3">
-          <div>
-            <div class="floor-number">Floor 3</div>
-            <div class="floor-meta">Workspaces</div>
-          </div>
-          <div class="offices">
-            <div class="office" tabindex="0" title="Office 301">
-              <div class="status occ">Occupied</div>
-              <div class="label">301</div>
-              <div class="sub">Office 1</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 302">
-              <div class="status free">Free</div>
-              <div class="label">302</div>
-              <div class="sub">Office 2</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 303">
-              <div class="status free">Free</div>
-              <div class="label">303</div>
-              <div class="sub">Office 3</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 304">
-              <div class="status occ">Occupied</div>
-              <div class="label">304</div>
-              <div class="sub">Office 4</div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Floor 2 -->
-        <section class="floor" role="listitem" aria-label="Floor 2">
-          <div>
-            <div class="floor-number">Floor 2</div>
-            <div class="floor-meta">Open Plan</div>
-          </div>
-          <div class="offices">
-            <div class="office" tabindex="0" title="Office 201">
-              <div class="status free">Free</div>
-              <div class="label">201</div>
-              <div class="sub">Office 1</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 202">
-              <div class="status occ">Occupied</div>
-              <div class="label">202</div>
-              <div class="sub">Office 2</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 203">
-              <div class="status free">Free</div>
-              <div class="label">203</div>
-              <div class="sub">Office 3</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 204">
-              <div class="status occ">Occupied</div>
-              <div class="label">204</div>
-              <div class="sub">Office 4</div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Floor 1 -->
-        <section class="floor" role="listitem" aria-label="Floor 1">
-          <div>
-            <div class="floor-number">Floor 1</div>
-            <div class="floor-meta">Reception</div>
-          </div>
-          <div class="offices">
-            <div class="office" tabindex="0" title="Office 101">
-              <div class="status occ">Occupied</div>
-              <div class="label">101</div>
-              <div class="sub">Office 1</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 102">
-              <div class="status free">Free</div>
-              <div class="label">102</div>
-              <div class="sub">Office 2</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 103">
-              <div class="status occ">Occupied</div>
-              <div class="label">103</div>
-              <div class="sub">Office 3</div>
-            </div>
-            <div class="office" tabindex="0" title="Office 104">
-              <div class="status free">Free</div>
-              <div class="label">104</div>
-              <div class="sub">Office 4</div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-
-      <footer>
-        Tip: to change counts or labels edit the office numbers in the HTML. This is a single-file HTML + CSS demo.
-      </footer>
-
-    </main>
-  </div>
 </body>
+
 </html>
+
