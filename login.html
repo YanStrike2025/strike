@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Cloud Shop</title>
+
+  <style>
+    /* Animación suave de entrada */
+    body {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tarjeta moderna */
+    .card {
+      transition: 0.25s;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Inputs modernos */
+    input {
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+      transform: scale(1.02);
+    }
+
+    /* Botón moderno */
+    button {
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: #1e40af !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Link olvidaste contraseña */
+    p:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <!-- LOGIN -->
+  <section id="login" class="max-w-md w-full bg-white p-8 rounded-2xl card">
+
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-700">
+      BIENVENIDO A <span class="text-blue-600">CLOUD SHOP</span>
+    </h2>
+
+    <!-- Inputs -->
+    <input type="text" placeholder="Usuario" class="w-full p-3 border rounded-lg mb-4" />
+    <input type="password" placeholder="Contraseña" class="w-full p-3 border rounded-lg mb-6" />
+
+    <!-- Botón -->
+    <button class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold"
+      onclick="window.location.href='inventario.html'">
+      INGRESAR
+    </button>
+
+    <p class="text-center mt-4 text-blue-600 cursor-pointer">
+      ¿Olvidaste tu contraseña?
+    </p>
+
+  </section>
+
+</body>
+
+</html>
