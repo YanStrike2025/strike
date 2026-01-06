@@ -18,20 +18,26 @@
 <body>
 
     <header class="hero">
-        <h1>Torneo de Leyendas TNG</h1>
-        <p>DOTA 2 • S/. 200 PEN • 11 Enero 2026</p>
-            <P id="countdown" class="countdown-timer"></P>
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="img/backvideo.mp4" type="video/mp4">
+        </video>
 
-        <div class="cta">
-            <a href="contact.html" class="btn primary">
-                <i class="fa-solid fa-trophy"></i> Competir
-            </a>
+        <div class="hero-content">
+            <h1>Torneo de Leyendas TNG</h1>
+            <p>DOTA 2 • S/. 200 PEN • 11 Enero 2026</p>
+            <p id="countdown" class="countdown-timer"></p>
 
-            <a href="#stream-section" class="btn outline" id="viewLiveBtn">
-                <i class="fa-solid fa-play"></i> Ver en Vivo
-            </a>
+            <div class="cta">
+                <a href="contact.html" class="btn primary">
+                    <i class="fa-solid fa-trophy"></i> Competir
+                </a>
+                <a href="#stream-section" class="btn outline" id="viewLiveBtn">
+                    <i class="fa-solid fa-play"></i> Ver en Vivo
+                </a>
+            </div>
         </div>
     </header>
+
 
     <section class="info">
         <div class="card">
@@ -112,17 +118,18 @@
     </section>
 
     <section class="section rules">
-        <h2><i class="fa-solid fa-book"></i> Reglas del Torneo</h2>
-        <div class="content-grid">
-            <ul>
-                <li>Formato: Single Elimination</li>
-                <li>Modo: Captains Mode BO3</li>
-                <li>Versión: Última versión estable de Dota 2</li>
-                <li>Prohibido: Cheats, smurfing, conducta tóxica</li>
-                <li>Check-in: 30 min antes del inicio</li>
-            </ul>
-        </div>
-    </section>
+    <h2><i class="fa-solid fa-book"></i> Reglas del Torneo</h2>
+
+    <div class="rules-list">
+        <ul>
+            <li><strong>Formato:</strong> Single Elimination</li>
+            <li><strong>Modo:</strong> Captains Mode BO3</li>
+            <li><strong>Versión:</strong> Última versión estable de Dota 2</li>
+            <li><strong>Prohibido:</strong> Cheats, smurfing, conducta tóxica</li>
+            <li><strong>Check-in:</strong> 30 minutos antes del inicio</li>
+        </ul>
+    </div>
+</section>
 
     <section class="stream" id="stream-section">
         <h2>Transmisión Oficial</h2>
