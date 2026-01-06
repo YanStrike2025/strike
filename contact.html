@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscripción de Equipo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="modal" style="display:flex">
+  <div class="modal-content">
+
+    <h2>Inscripción al Torneo</h2>
+
+    <form id="contactForm">
+      <input type="text" name="team_name" placeholder="Nombre del Equipo" required>
+
+      <input type="text" name="captain_nick" placeholder="Nick del Capitán" required>
+
+      <input type="text" name="player1_nick" placeholder="Nick del Participante 1" required>
+      <input type="text" name="player2_nick" placeholder="Nick del Participante 2" required>
+      <input type="text" name="player3_nick" placeholder="Nick del Participante 3" required>
+      <input type="text" name="player4_nick" placeholder="Nick del Participante 4" required>
+
+      <input type="text" name="reserve_nick" placeholder="Nick del Jugador Reserva (opcional)">
+
+      <button type="submit" class="btn primary" style="width:100%">
+        Enviar Inscripción
+      </button>
+    </form>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("AfN_cof7vBwnEfmiL");
+  })();
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

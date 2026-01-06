@@ -1,345 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<title>TORNEO DE LEYENDAS DE TNG</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Torneo de Leyendas TNG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- GOOGLE FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Teko:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Teko:wght@400;600&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
 
-<!-- ICONS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-:root{
-    --primary:#ff4655;
-    --accent:#00ffd5;
-    --dark:#02040a;
-    --card:rgba(27,39,53,0.85);
-    --glass:rgba(255,255,255,0.08);
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-    font-family:'Roboto',sans-serif;
-    background:
-      radial-gradient(circle at top,#10192d,#02040a 60%);
-    color:#eaeaea;
-    overflow-x:hidden;
-}
-
-/* PARTICLES */
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:
-      radial-gradient(#00ffd533 1px, transparent 1px);
-    background-size:40px 40px;
-    opacity:.15;
-    z-index:-1;
-}
-
-/* HERO */
-.hero{
-    min-height:100vh;
-    background:
-      linear-gradient(to bottom,rgba(2,4,10,.7),rgba(2,4,10,.95)),
-      url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=80")
-      center/cover fixed;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px 20px;
-}
-
-.hero h1{
-    font-family:'Orbitron',sans-serif;
-    font-size:3.6rem;
-    color:var(--primary);
-    text-shadow:0 0 40px rgba(255,70,85,.9);
-}
-
-.hero h2{
-    font-family:'Teko',sans-serif;
-    font-size:2.1rem;
-    letter-spacing:4px;
-    margin-top:10px;
-    color:var(--accent);
-}
-
-.cta{
-    margin-top:35px;
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:14px 36px;
-    border-radius:40px;
-    border:none;
-    font-family:'Orbitron';
-    font-size:1rem;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.btn-primary{
-    background:var(--primary);
-    color:#fff;
-}
-
-.btn-primary:hover{
-    box-shadow:0 0 35px var(--primary);
-    transform:scale(1.05);
-}
-
-.btn-outline{
-    background:transparent;
-    border:2px solid var(--accent);
-    color:var(--accent);
-}
-
-.btn-outline:hover{
-    background:var(--accent);
-    color:#000;
-}
-
-/* INFO */
-.info{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-    max-width:1200px;
-    margin:-90px auto 70px;
-    padding:0 20px;
-}
-
-.info-card{
-    background:var(--card);
-    backdrop-filter:blur(12px);
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
-    border:1px solid var(--glass);
-    transition:.4s;
-}
-
-.info-card:hover{
-    transform:translateY(-12px);
-    box-shadow:0 25px 45px rgba(0,255,213,.25);
-}
-
-.info-card i{
-    font-size:2.9rem;
-    color:var(--accent);
-    margin-bottom:10px;
-}
-
-/* TEAMS */
-.section{
-    max-width:1300px;
-    margin:auto;
-    padding:70px 20px;
-}
-
-.section h2{
-    text-align:center;
-    font-family:'Orbitron';
-    font-size:2.5rem;
-    color:var(--primary);
-    margin-bottom:45px;
-}
-
-.teams{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-
-.team{
-    background:
-      linear-gradient(145deg,#1b2735,#0f1923);
-    border-radius:24px;
-    padding:25px;
-    border:1px solid var(--glass);
-    position:relative;
-    overflow:hidden;
-}
-
-.team::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(120deg,transparent,rgba(255,70,85,.2),transparent);
-    opacity:0;
-    transition:.4s;
-}
-
-.team:hover::after{opacity:1;}
-
-.team h3{
-    font-family:'Teko';
-    font-size:1.7rem;
-    color:var(--accent);
-}
-
-/* STREAM */
-.stream{
-    background:
-      linear-gradient(rgba(2,4,10,.85),rgba(2,4,10,.95)),
-      url("https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1600&q=80")
-      center/cover fixed;
-    border-radius:35px;
-    padding:60px 20px;
-    text-align:center;
-}
-
-.stream h2{
-    font-family:'Orbitron';
-    color:var(--accent);
-    margin-bottom:20px;
-}
-
-.stream-box{
-    max-width:900px;
-    margin:30px auto 0;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 0 40px rgba(0,0,0,.8);
-    border:2px solid var(--accent);
-}
-
-.stream iframe{
-    width:100%;
-    height:480px;
-    border:none;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:35px;
-    color:#aaa;
-    font-size:.9rem;
-}
-footer span{color:var(--accent);}
-</style>
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
+
 <body>
 
-<section class="hero">
-    <h1>TORNEO DE LEYENDAS DE TNG</h1>
-    <h2>DOTA 2 • S/. 200 PEN PRIZE POOL</h2>
-    <div class="cta">
-        <button class="btn btn-primary"><i class="fa-solid fa-trophy"></i> Competir</button>
-        <a href="#live" class="btn btn-outline"><i class="fa-brands fa-kickstarter"></i> Ver en Vivo</a>
-    </div>
-</section>
+    <header class="hero">
+        <h1>Torneo de Leyendas TNG</h1>
+        <p>DOTA 2 • S/. 200 PEN • 11 Enero 2026</p>
+            <P id="countdown" class="countdown-timer"></P>
 
-<section class="info">
-    <div class="info-card">
-        <i class="fa-solid fa-sack-dollar"></i>
-        <h3>Pozo</h3>
-        <p>S/. 200 PEN</p>
-    </div>
-    <div class="info-card">
-        <i class="fa-solid fa-calendar-days"></i>
-        <h3>Fecha</h3>
-        <p>30 Enero 2026</p>
-    </div>
-    <div class="info-card">
-        <i class="fa-solid fa-clock"></i>
-        <h3>Hora</h3>
-        <p>5:00 PM (Perú)</p>
-    </div>
-    <div class="info-card">
-        <i class="fa-solid fa-gamepad"></i>
-        <h3>Juego</h3>
-        <p>Dota 2</p>
-    </div>
-</section>
-<section class="section">
-    <h2><i class="fa-solid fa-users"></i> Equipos Participantes</h2>
+        <div class="cta">
+            <a href="contact.html" class="btn primary">
+                <i class="fa-solid fa-trophy"></i> Competir
+            </a>
 
-    <div class="teams">
+            <a href="#stream-section" class="btn outline" id="viewLiveBtn">
+                <i class="fa-solid fa-play"></i> Ver en Vivo
+            </a>
+        </div>
+    </header>
 
-        <div class="team">
-            <h3><i class="fa-solid fa-shield-halved"></i> EQUIPO 1</h3>
-            <ul>
-                <li><i class="fa-solid fa-flag"></i> Nombre: Por confirmar</li>
-                <li><i class="fa-solid fa-crown"></i> Capitán: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 1: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 2: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 3: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 4: Por confirmar</li>
-            </ul>
+    <section class="info">
+        <div class="card">
+            <i class="fa-solid fa-sack-dollar"></i>
+            <h3>Premio</h3>
+            <span>S/. 200</span>
         </div>
 
-        <div class="team">
-            <h3><i class="fa-solid fa-shield-halved"></i> EQUIPO 2</h3>
-            <ul>
-                <li><i class="fa-solid fa-flag"></i> Nombre: Por confirmar</li>
-                <li><i class="fa-solid fa-crown"></i> Capitán: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 1: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 2: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 3: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 4: Por confirmar</li>
-            </ul>
+        <div class="card">
+            <i class="fa-solid fa-calendar"></i>
+            <h3>Fecha</h3>
+            <span>11 Enero</span>
         </div>
 
-        <div class="team">
-            <h3><i class="fa-solid fa-shield-halved"></i> EQUIPO 3</h3>
-            <ul>
-                <li><i class="fa-solid fa-flag"></i> Nombre: Por confirmar</li>
-                <li><i class="fa-solid fa-crown"></i> Capitán: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 1: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 2: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 3: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 4: Por confirmar</li>
-            </ul>
+        <div class="card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Hora</h3>
+            <span>5:00 PM</span>
         </div>
 
-        <div class="team">
-            <h3><i class="fa-solid fa-shield-halved"></i> EQUIPO 4</h3>
+        <div class="card">
+            <i class="fa-solid fa-gamepad"></i>
+            <h3>Juego</h3>
+            <span>Dota 2</span>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2><i class="fa-solid fa-users"></i> Equipos Inscritos</h2>
+
+        <div class="teams">
+
+            <div class="team">
+                <strong>Equipo:</strong> Por confirmar<br>
+                <strong>👑 Capitán:</strong> Por confirmar<br><br>
+
+                🎮 Jugadores:<br>
+                - Por confirmar<br>
+                - Por confirmar<br>
+                - Por confirmar<br>
+                - Por confirmar
+            </div>
+
+            <div class="team">
+                <strong>Equipo:</strong> Por confirmar<br>
+                <strong>👑 Capitán:</strong> Por confirmar<br><br>
+
+                🎮 Jugadores:<br>
+                - Por confirmar<br>
+                - Por confirmar<br>
+                - Por confirmar<br>
+                - Por confirmar
+            </div>
+
+            <div class="team">
+                <strong>Equipo:</strong> Por confirmar<br>
+                <strong>👑 Capitán:</strong> Por confirmar<br><br>
+
+                🎮 Jugadores:<br>
+                - Por confirmar<br>
+                - Por confirmar<br>
+                - Por confirmar<br>
+                - Por confirmar
+            </div>
+
+            <div class="team">
+                <strong>Equipo:</strong> Por confirmar<br>
+                <strong>👑 Capitán:</strong> Por confirmar<br><br>
+
+                🎮 Jugadores:<br>
+                - Por confirmar<br>
+                - Por confirmar<br>
+                - Por confirmar<br>
+                - Por confirmar
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section rules">
+        <h2><i class="fa-solid fa-book"></i> Reglas del Torneo</h2>
+        <div class="content-grid">
             <ul>
-                <li><i class="fa-solid fa-flag"></i> Nombre: Por confirmar</li>
-                <li><i class="fa-solid fa-crown"></i> Capitán: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 1: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 2: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 3: Por confirmar</li>
-                <li><i class="fa-solid fa-user"></i> Jugador 4: Por confirmar</li>
+                <li>Formato: Single Elimination</li>
+                <li>Modo: Captains Mode BO3</li>
+                <li>Versión: Última versión estable de Dota 2</li>
+                <li>Prohibido: Cheats, smurfing, conducta tóxica</li>
+                <li>Check-in: 30 min antes del inicio</li>
             </ul>
         </div>
+    </section>
 
-    </div>
-</section>
+    <section class="stream" id="stream-section">
+        <h2>Transmisión Oficial</h2>
 
-<div class="teams">
-    <!-- equipos iguales a los tuyos -->
-</div>
-</section>
+        <div class="stream-preview live">
+            <iframe src="https://player.kick.com/yanstrike?autoplay=false" allow="fullscreen" allowfullscreen
+                frameborder="0">
+            </iframe>
+        </div>
 
-<section id="live" class="section stream">
-    <h2><i class="fa-brands fa-kickstarter"></i> TRANSMISIÓN OFICIAL EN VIVO</h2>
+        <a href="https://kick.com/yanstrike" target="_blank" class="btn primary">
+            <i class="fa-solid fa-play"></i> Ver en Kick
+        </a>
+    </section>
 
-    <div class="stream-box">
-        <iframe
-            src="https://kick.com/yanstrike"
-            allowfullscreen>
-        </iframe>
-    </div>
-</section>
+    <footer>
+        <span>© SirStrike 2026</span>
+    </footer>
 
-<footer>
-    ©SirStrike 2026 <span>TNG</span> • Torneo de Leyendas • Dota 2
-</footer>
+    <script src="script.js?v=2"></script>
 
 </body>
+
 </html>
