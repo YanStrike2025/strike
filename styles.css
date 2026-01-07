@@ -1,3 +1,5 @@
+/* ================= VARIABLES ================= */
+
 :root {
     --primary: #ff4655;
     --accent: #00ffd5;
@@ -7,6 +9,8 @@
     --text: #f1f5ff;
     --text-muted: #cfd7ff;
 }
+
+/* ================= RESET ================= */
 
 * {
     margin: 0;
@@ -26,12 +30,12 @@ body {
 .hero {
     position: relative;
     min-height: 100vh;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 40px 20px;
+    overflow: hidden;
 }
 
 .hero-video {
@@ -47,23 +51,38 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom,
-            rgba(12, 18, 32, .45),
-            rgba(12, 18, 32, .75));
+    background: linear-gradient(
+        to bottom,
+        rgba(12,18,32,.35),
+        rgba(12,18,32,.85)
+    );
     z-index: -1;
 }
 
-
-.hero-content {
-    z-index: 1;
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--bg)
+    );
+    pointer-events: none;
 }
 
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
 
 .hero h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: 3.5rem;
     color: var(--primary);
-    text-shadow: 0 0 20px rgba(255, 70, 85, .5);
+    text-shadow: 0 0 20px rgba(255,70,85,.5);
 }
 
 .hero p {
@@ -73,59 +92,58 @@ body {
     color: var(--text-muted);
 }
 
+/* ================= BOTONES ================= */
+
 .cta {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn {
     padding: 14px 36px;
     border-radius: 50px;
     font-family: 'Orbitron', sans-serif;
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
     transition: all .35s ease;
-    font-size: 1.1rem;
 }
 
 .primary {
     background: var(--primary);
     color: #fff;
-    box-shadow: 0 0 15px rgba(255, 70, 85, .3);
+    box-shadow: 0 0 15px rgba(255,70,85,.35);
 }
 
 .primary:hover {
-    box-shadow: 0 0 40px var(--primary);
     transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 40px var(--primary);
 }
 
 .outline {
     border: 2px solid var(--accent);
     color: var(--accent);
-    background: transparent;
 }
 
 .outline:hover {
     background: var(--accent);
     color: #000;
-    box-shadow: 0 0 30px var(--accent);
 }
 
 /* ================= INFO ================= */
 
 .info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
     gap: 30px;
     max-width: 1200px;
     margin: -100px auto 100px;
     padding: 0 20px;
-    position: relative;
     z-index: 2;
+    position: relative;
 }
 
 .card {
@@ -133,26 +151,24 @@ body {
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-    transition: all .4s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    transition: transform .35s ease;
 }
 
 .card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 25px 50px rgba(0, 255, 213, .3);
+    transform: translateY(-12px);
 }
 
 .card i {
     font-size: 3rem;
     color: var(--accent);
-    margin-bottom: 15px;
-    text-shadow: 0 0 15px var(--accent);
+    margin-bottom: 14px;
 }
 
 /* ================= SECTIONS ================= */
 
 .section {
-    padding: 100px 20px;
+    padding: 80px 20px;
     max-width: 1200px;
     margin: auto;
     text-align: center;
@@ -160,88 +176,181 @@ body {
 
 .section h2 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     margin-bottom: 60px;
     color: var(--primary);
-    text-shadow: 0 0 20px rgba(255, 70, 85, .4);
 }
 
-/* ================= TEAMS ================= */
+/* ================= FEATURED TEAM ================= */
 
-.teams {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 22px;
+#featured-team {
+    padding: 60px 20px;
 }
 
+#featured-team .team-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
 
-.team {
-    background: linear-gradient(160deg, #202b4d, #161f3a);
-    padding: 22px 20px;
+/* CARD */
+#featured-team .team-card {
+    width: 250px;
+    background: linear-gradient(160deg,#202b4d,#161f3a);
     border-radius: 18px;
-    text-align: left;
-
-    font-family: 'Roboto', sans-serif;
-    font-size: .95rem;
-    line-height: 1.45;
-
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .45);
-    border: 1px solid rgba(255, 255, 255, .07);
-
-    transition: transform .3s ease, box-shadow .3s ease;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 12px 30px rgba(0,0,0,.55);
+    transition: transform .25s ease, box-shadow .25s ease;
 }
 
-
-.team:hover {
+#featured-team .team-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(255, 70, 85, .35);
+    box-shadow: 0 20px 45px rgba(0,255,213,.35);
 }
 
-.team strong {
+#featured-team .team-card.confirmed {
+    border: 2px solid var(--accent);
+}
+
+/* IMAGE */
+#featured-team .team-image {
+    width: 100%;
+    height: 160px;
+    background: #000;
+}
+
+#featured-team .team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 18px 18px 0 0;
+}
+
+/* BODY */
+#featured-team .team-body {
+    padding: 16px 18px 20px;
+}
+
+#featured-team h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+#featured-team .captain {
+    display: block;
+    font-size: .85rem;
     color: var(--accent);
-    font-weight: 500;
-    font-size: .9rem;
+    margin-bottom: 14px;
 }
 
+/* ROLES */
+#featured-team .team-roles {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    font-size: .8rem;
+}
 
-/* ================= STREAM (EN VIVO) ================= */
+#featured-team .team-roles li {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(255,255,255,.1);
+    color: var(--text-muted);
+}
+
+#featured-team .team-roles span {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+#featured-team .team-roles .standing {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(0,255,213,.3);
+    color: var(--text);
+}
+
+/* ================= RULES ================= */
+
+.rules-list {
+    max-width: 700px;
+    margin: auto;
+    background: var(--card);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.rules-list ul {
+    list-style: none;
+    text-align: left;
+}
+
+.rules-list li {
+    padding: 8px 0 8px 26px;
+    position: relative;
+    color: var(--text-muted);
+}
+
+.rules-list li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* ================= STREAM FIX ================= */
 
 .stream {
-    padding: 100px 20px;
+    padding: 80px 20px;
     text-align: center;
+    overflow: hidden; /* 👈 evita que algo se salga */
 }
 
 .stream h2 {
     font-family: 'Orbitron', sans-serif;
     color: var(--accent);
     margin-bottom: 40px;
-    font-size: 2.8rem;
-    text-shadow: 0 0 20px var(--accent);
+    font-size: 2.6rem;
 }
 
 .stream-preview {
     position: relative;
+    width: 100%;
     max-width: 1000px;
     margin: 0 auto 40px;
     aspect-ratio: 16 / 9;
     border-radius: 24px;
-    overflow: hidden;
-    border: 3px solid rgba(0, 255, 213, .4);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, .7);
+    overflow: hidden; /* 👈 CLAVE */
+    border: 3px solid rgba(0,255,213,.4);
+    box-shadow: 0 25px 70px rgba(0,0,0,.7);
 }
 
+/* IFRAME BIEN CONTENIDO */
 .stream-preview iframe {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     border: none;
 }
+
+/* BOTÓN CENTRADO */
+.stream .btn {
+    margin-top: 10px;
+}
+
 
 /* ================= FOOTER ================= */
 
 footer {
     padding: 40px;
     text-align: center;
-    font-size: 1.1rem;
     color: var(--text-muted);
 }
 
@@ -249,49 +358,32 @@ footer span {
     color: var(--accent);
 }
 
-/* ================= CONTACT PAGE ================= */
+/* ================= CONTACT FIX ================= */
 
-/* Usar el modal como página completa */
+body {
+    background: linear-gradient(180deg, #0e1630, var(--bg));
+}
+
+/* Modal full page */
 .modal {
-    display: flex !important;
-    position: fixed;
-    inset: 0;
-    background:
-        linear-gradient(to bottom, rgba(12, 18, 32, .85), rgba(12, 18, 32, .95)),
-        url("https://media.giphy.com/media/JDEhqK4cDvqNZo5Z06/giphy.gif") center / cover;
-    backdrop-filter: blur(6px);
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Caja del formulario */
+/* Formulario */
 .modal-content {
-    background: linear-gradient(160deg, #202b4d, #161f3a);
-    padding: 40px;
-    width: 90%;
-    max-width: 520px;
-    border-radius: 22px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, .75);
-    border: 1px solid rgba(255, 255, 255, .08);
-    animation: modalIn .4s ease;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text);
 }
 
-/* Título */
-.modal-content h2 {
-    font-family: 'Orbitron', sans-serif;
-    text-align: center;
-    margin-bottom: 25px;
-    color: var(--accent);
-    text-shadow: 0 0 15px var(--accent);
-}
-
-/* Inputs */
+/* Inputs visibles */
 .modal-content input {
     width: 100%;
     padding: 14px;
     margin-bottom: 12px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255,255,255,.15);
     background: #0c1220;
     color: var(--text);
     font-size: .95rem;
@@ -301,115 +393,30 @@ footer span {
     color: var(--text-muted);
 }
 
-/* Botón */
-.modal-content button {
-    margin-top: 10px;
-}
-
-/* Animación */
-@keyframes modalIn {
-    from {
-        opacity: 0;
-        transform: scale(.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* ================= HERO - Difuminado inferior suave ================= */
-
-.hero {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-    display: flex;
+/* Botón visible */
+.modal-content .btn {
+    width: 100%;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
 }
-
-/* Degrade inferior que cubre el final del video y suaviza la transición */
-.hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
+/* Modal full page */
+.modal {
+    position: fixed; /* para que quede sobre todo */
+    top: 0;
     left: 0;
     width: 100%;
-    height: 300px;
-    /* Ajusta esta altura según cuánto quieras que cubra (200-400px suele funcionar bien) */
-    background: linear-gradient(to bottom,
-            transparent 0%,
-            rgba(12, 18, 32, 0.6) 40%,
-            var(--bg) 100%);
-    pointer-events: none;
-    /* No interfiere con clics */
-    z-index: 1;
-    /* Por encima del video, pero debajo del contenido */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.6); /* fondo semitransparente */
 }
 
-/* Aseguramos que el contenido (texto y botones) quede por encima del degrade */
-.hero-content {
-    z-index: 2;
-    position: relative;
-}
-
-/* Opcional: reforzar el overlay existente para que sea un poco más oscuro en la parte inferior */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom,
-            rgba(12, 18, 32, .35) 0%,
-            rgba(12, 18, 32, .75) 70%,
-            rgba(12, 18, 32, .95) 100%);
-    z-index: -1;
-}
-
-/* ================= REGLAS DEL TORNEO - Estilo centrado y elegante ================= */
-
-.rules-list {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 30px 20px;
-    background: var(--card);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
-    border: 1px solid rgba(255, 255, 255, .07);
-}
-
-.rules-list ul {
-    list-style: none;
-    text-align: left;
-    font-size: 1.1rem;
-    line-height: 2.2;
-}
-
-.rules-list li {
-    padding: 8px 0;
-    position: relative;
-    padding-left: 30px;
-    color: var(--text-muted);
-    transition: color .3s ease;
-}
-
-.rules-list li:hover {
-    color: var(--text);
-}
-
-.rules-list li::before {
-    content: "▶";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 1rem;
-    text-shadow: 0 0 10px var(--accent);
-}
-
-.rules-list strong {
-    color: var(--accent);
-    font-weight: 500;
+/* Caja del formulario */
+.modal-content {
+    background: #1a2238; /* color de fondo */
+    padding: 24px;
+    border-radius: 12px;
+    max-width: 400px; /* límite de ancho */
+    width: 90%;       /* adaptable a pantallas pequeñas */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
