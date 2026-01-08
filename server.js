@@ -8,10 +8,11 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-/* Serve all files in this folder */
-app.use(express.static(__dirname));
+/* Serve static files */
+app.use(express.static(path.join(__dirname)));
 
-app.get("/", (req, res) => {
+/* Always serve index.html */
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
