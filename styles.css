@@ -477,7 +477,7 @@ body {
 
 /* Imagen Principal del Jugador (Izquierda) */
 .mvp-image {
-    flex: 1 1 350px;
+    flex: 1 1 40%;
     line-height: 0;
     position: relative;
 }
@@ -640,5 +640,87 @@ body {
         border-top: 3px solid #daa520;
         padding-left: 0;
         padding-top: 15px;
+    }
+}
+/* ===============================
+   MVP – FIX MOBILE REAL
+================================ */
+@media (max-width: 768px) {
+
+    .mvp-content {
+        flex-direction: column;
+    }
+
+    /* Imagen MVP */
+    .mvp-image {
+        width: 100%;
+        height: 90%;
+    }
+
+    .mvp-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5; /* Mantiene proporción real */
+        object-fit: cover;
+        border-right: none;
+        border-bottom: 1px solid #333;
+        max-height: none;
+    }
+
+    /* Detalles */
+    .mvp-details {
+        padding: 25px 18px;
+        text-align: center;
+    }
+
+    .mvp-player-name {
+        font-size: 2.6rem;
+    }
+
+    .mvp-team-name {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    /* Stats */
+    .mvp-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 15px 0;
+    }
+
+    .stat-value {
+        font-size: 1.8rem;
+    }
+
+    /* Héroes */
+    .mvp-hero-images {
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .hero-slot {
+        width: 80px;
+        height: 115px;
+    }
+
+    /* Descripción */
+    .mvp-description {
+        font-size: 0.95rem;
+        border-left: none;
+        border-top: 3px solid #daa520;
+        padding-top: 15px;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    /* Badge */
+    .mvp-badge {
+        top: 15px;
+        right: -45px;
+        font-size: 0.7rem;
+        padding: 6px 35px;
     }
 }
