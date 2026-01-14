@@ -83,7 +83,7 @@ document.getElementById("viewLiveBtn")?.addEventListener("click", e => {
         behavior: "smooth"
     });
 });
-const tournamentDate = new Date("2026-01-11T17:00:00-05:00").getTime();
+const tournamentDate = new Date("2026-01-18T17:00:00-05:00").getTime();
 
 const countdown = setInterval(() => {
     const now = new Date().getTime();

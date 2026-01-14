@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Inscripción de Equipo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Inscripción • Torneo de Leyendas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body class="bg-zinc-950 h-screen flex items-center justify-center p-4">
 
-<body>
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="img/backvideo.mp4" type="video/mp4">
-  </video>
-  <div class="modal" style="display:flex">
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+        <source src="img/backvideo.mp4" type="video/mp4">
+    </video>
 
-    <div class="modal-content">
+    <div class="glass p-1 rounded-3xl max-w-md w-full">
+        <div class="bg-zinc-900/80 p-8 md:p-10 rounded-3xl">
+            <div class="mb-8 text-center">
+                <h2 class="font-orbitron text-2xl text-white tracking-tight uppercase">Inscripción</h2>
+                <div class="h-1 w-12 bg-[#ff4655] mx-auto mt-2"></div>
+            </div>
 
-      <h2>Inscripción al Torneo</h2>
+            <form id="contactForm" class="space-y-4">
+                <input type="text" name="team_name" placeholder="Nombre del Equipo" class="w-full p-4 rounded-xl text-white text-sm" required>
+                <input type="text" name="captain_nick" placeholder="Nick del Capitán" class="w-full p-4 rounded-xl text-white text-sm" required>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" name="player1_nick" placeholder="P1 Nick" class="p-4 rounded-xl text-white text-sm" required>
+                    <input type="text" name="player2_nick" placeholder="P2 Nick" class="p-4 rounded-xl text-white text-sm" required>
+                    <input type="text" name="player3_nick" placeholder="P3 Nick" class="p-4 rounded-xl text-white text-sm" required>
+                    <input type="text" name="player4_nick" placeholder="P4 Nick" class="p-4 rounded-xl text-white text-sm" required>
+                </div>
 
-      <form id="contactForm">
-        <input type="text" name="team_name" placeholder="Nombre del Equipo" required>
+                <input type="text" name="reserve_nick" placeholder="Jugador Reserva (Opcional)" class="w-full p-4 rounded-xl text-white text-sm">
 
-        <input type="text" name="captain_nick" placeholder="Nick del Capitán" required>
-
-        <input type="text" name="player1_nick" placeholder="Nick del Participante 1" required>
-        <input type="text" name="player2_nick" placeholder="Nick del Participante 2" required>
-        <input type="text" name="player3_nick" placeholder="Nick del Participante 3" required>
-        <input type="text" name="player4_nick" placeholder="Nick del Participante 4" required>
-
-        <input type="text" name="reserve_nick" placeholder="Nick del Jugador Reserva (opcional)">
-
-        <button type="submit" class="btn primary" style="width:100%">
-          Enviar Inscripción
-        </button>
-      </form>
-
+                <button type="submit" class="w-full mt-6 bg-[#ff4655] hover:bg-white hover:text-black text-white font-orbitron py-4 rounded-xl transition-all duration-300 tracking-widest">
+                    ENVIAR EQUIPO
+                </button>
+            </form>
+            
+            <a href="index.html" class="block text-center mt-6 text-zinc-500 text-xs hover:text-zinc-200 transition-colors uppercase tracking-widest">
+                ← Volver al inicio
+            </a>
+        </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init("AfN_cof7vBwnEfmiL");
-    })();
-  </script>
-
-  <script src="script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function () { emailjs.init("AfN_cof7vBwnEfmiL"); })();
+    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>

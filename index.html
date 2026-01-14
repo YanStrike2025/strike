@@ -1,250 +1,268 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <title>Torneo de Leyendas TNG</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Teko:wght@400;600&family=Roboto:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-
 </head>
 
-<body>
-    <header class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="img/backvideo.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content">
-            <h1>Torneo de Leyendas TNG</h1>
-            <p>DOTA 2 • S/. 200 PEN • 11 Enero 2026</p>
-            <p id="countdown" class="countdown-timer"></p>
+<body class="overflow-x-hidden">
 
-            <div class="cta">
-                <a href="contact.html" class="btn primary">
-                    <div class="btn-content">
-                        <i class="fa-solid fa-trophy"></i>
-                        <span class="btn-text">Inscripciones</span>
-                        <span class="btn-subtext">Hasta el 7 de enero 2026</span>
-                    </div>
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+        <source src="img/backvideo.mp4" type="video/mp4">
+    </video>
+
+    <header class="relative h-screen flex flex-col items-center justify-center text-center px-4">
+        <div class="z-10">
+            <h1 class="font-orbitron text-5xl md:text-7xl font-bold tracking-tighter text-white mb-2 drop-shadow-2xl">
+                TORNEO DE LEYENDAS <span class="text-[#ff4655]">TNG</span>
+            </h1>
+            <h1 class="font-orbitron text-3xl md:text-4xl font-bold tracking-tighter text-white mb-2 drop-shadow-2xl">
+                2da edición</h1>
+            <p class="text-zinc-400 font-medium tracking-[0.3em] uppercase text-sm md:text-lg mb-6">
+                DOTA 2 • S/. 200 PEN • 18 Enero 2026
+            </p>
+
+            <div id="countdown" class="font-orbitron text-3xl md:text-4xl text-[#00ffd5] mb-12 tabular-nums"></div>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="contact.html"
+                    class="group bg-[#ff4655] text-white px-8 py-4 rounded-full font-orbitron hover:bg-white hover:text-black transition-all flex flex-col items-center">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-trophy"></i> Inscripciones
+                    </span>
+                    <span class="text-[10px] uppercase font-sans opacity-80">Hasta el 17 de enero 2026</span>
                 </a>
-                <a href="#stream-section" class="btn outline" id="viewLiveBtn">
-                    <i class="fa-solid fa-play"></i> Ver en Vivo
+                <a href="#stream-section" id="viewLiveBtn"
+                    class="border border-zinc-600 px-8 py-5 rounded-full font-orbitron text-white hover:bg-white hover:text-black transition-all">
+                    <i class="fa-solid fa-play mr-2"></i> Ver en Vivo
                 </a>
             </div>
         </div>
+        <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-[#060608] to-transparent"></div>
     </header>
 
-
-    <section class="info">
-        <div class="card">
-            <i class="fa-solid fa-sack-dollar"></i>
-            <h3>Premio</h3>
-            <span>S/. 200</span>
+    <section class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 px-4 relative z-20 -mt-16">
+        <div class="glass-card p-6 rounded-xl text-center">
+            <i class="fa-solid fa-sack-dollar text-[#00ffd5] text-2xl mb-3"></i>
+            <h3 class="text-zinc-500 text-[10px] uppercase tracking-widest font-bold">Premio</h3>
+            <span class="text-xl font-orbitron block">S/. 200</span>
         </div>
-
-        <div class="card">
-            <i class="fa-solid fa-calendar"></i>
-            <h3>Fecha</h3>
-            <span>11 Enero</span>
+        <div class="glass-card p-6 rounded-xl text-center">
+            <i class="fa-solid fa-calendar text-[#00ffd5] text-2xl mb-3"></i>
+            <h3 class="text-zinc-500 text-[10px] uppercase tracking-widest font-bold">Fecha</h3>
+            <span class="text-xl font-orbitron block">11 Enero</span>
         </div>
-
-        <div class="card">
-            <i class="fa-solid fa-clock"></i>
-            <h3>Hora</h3>
-            <span>5:00 PM</span>
+        <div class="glass-card p-6 rounded-xl text-center">
+            <i class="fa-solid fa-clock text-[#00ffd5] text-2xl mb-3"></i>
+            <h3 class="text-zinc-500 text-[10px] uppercase tracking-widest font-bold">Hora</h3>
+            <span class="text-xl font-orbitron block">5:00 PM</span>
         </div>
-
-        <div class="card">
-            <i class="fa-solid fa-gamepad"></i>
-            <h3>Juego</h3>
-            <span>Dota 2</span>
+        <div class="glass-card p-6 rounded-xl text-center">
+            <i class="fa-solid fa-gamepad text-[#00ffd5] text-2xl mb-3"></i>
+            <h3 class="text-zinc-500 text-[10px] uppercase tracking-widest font-bold">Juego</h3>
+            <span class="text-xl font-orbitron block">Dota 2</span>
         </div>
     </section>
-    <section class="section mvp-highlight">
-        <h2><i class="fa-solid fa-star"></i> MVP del Torneo</h2>
 
-        <div class="mvp-container">
-            <div class="mvp-card">
-                <div class="mvp-badge">GANADOR</div>
+    <!--SECION DE MVP
+    <section class="py-32 max-w-6xl mx-auto px-4">
+        <h2 class="font-orbitron text-2xl mb-12 flex items-center gap-4">
+            <i class="fa-solid fa-star text-yellow-500"></i> MVP DEL TORNEO
+        </h2>
 
-                <div class="mvp-content">
-                    <div class="mvp-image">
-                        <img src="img/mvp.jpg" alt="MVP del Torneo">
-                    </div>
+        <div class="relative overflow-hidden rounded-3xl glass border border-zinc-800">
+            <div class="absolute top-8 -right-10 badge-winner font-orbitron px-12 py-1 text-sm font-bold z-30">
+                GANADOR
+            </div>
 
-                    <div class="mvp-details">
-                        <span class="mvp-subtitle">MVP DEL TORNEO</span>
-                        <h3 class="mvp-player-name">CHAMAKO THE PERRO</h3>
-                        <p class="mvp-team-name">Equipo: LOS GALÁCTICOS</p>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-2/5">
+                    <img src="img/mvp.jpg" alt="MVP"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+                <div class="md:w-3/5 p-8 md:p-16">
+                    <span class="text-[#daa520] font-orbitron text-sm tracking-[0.3em] uppercase block mb-2">MVP DEL
+                        TORNEO</span>
+                    <h3 class="font-teko text-6xl md:text-8xl leading-none text-white font-semibold mb-2">CHAMAKO THE
+                        PERRO</h3>
+                    <p class="text-zinc-500 text-lg mb-8 italic">Equipo: LOS GALÁCTICOS</p>
 
-                        <div class="mvp-stats">
-                            <div class="stat-item">
-                                <span class="stat-value">12.5</span>
-                                <span class="stat-label">KDA</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">750</span>
-                                <span class="stat-label">GPM</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">820</span>
-                                <span class="stat-label">XPM</span>
-                            </div>
+                    <div class="flex gap-10 border-y border-zinc-800 py-8 mb-8">
+                        <div>
+                            <span class="block text-4xl font-teko text-white">12.5</span>
+                            <span class="text-xs text-[#daa520] font-orbitron tracking-widest">KDA</span>
                         </div>
-                        <div class="mvp-heroes-container">
-                            <h4><i class="fa-solid fa-shield-halved"></i> Héroes Destacados</h4>
-                            <div class="mvp-hero-images">
-                                <div class="hero-slot" title="Héroe 1">
-                                    <img src="img/hero1.jpg" alt="Top Hero 1">
-                                </div>
-                                <div class="hero-slot" title="Héroe 2">
-                                    <img src="img/hero2.jpg" alt="Top Hero 2">
-                                </div>
-                                <div class="hero-slot" title="Héroe 2">
-                                    <img src="img/hero3.jpg" alt="Top Hero 2">
-                                </div>
-                            </div>
+                        <div>
+                            <span class="block text-4xl font-teko text-white">750</span>
+                            <span class="text-xs text-[#daa520] font-orbitron tracking-widest">GPM</span>
                         </div>
-                        <div class="mvp-description">
-                            "Dominio total en la línea de Mid y rotaciones clave que aseguraron la victoria final."
+                        <div>
+                            <span class="block text-4xl font-teko text-white">820</span>
+                            <span class="text-xs text-[#daa520] font-orbitron tracking-widest">XPM</span>
                         </div>
                     </div>
+
+                    <div class="mb-8">
+                        <h4
+                            class="text-zinc-400 font-orbitron text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved"></i> Héroes Destacados
+                        </h4>
+                        <div class="flex gap-4">
+                            <img src="img/hero1.jpg"
+                                class="w-20 h-15 object-cover rounded border border-zinc-700 hover:border-[#daa520] transition-all">
+                            <img src="img/hero2.jpg"
+                                class="w-20 h-15 object-cover rounded border border-zinc-700 hover:border-[#daa520] transition-all">
+                            <img src="img/hero3.jpg"
+                                class="w-20 h-15 object-cover rounded border border-zinc-700 hover:border-[#daa520] transition-all">
+                        </div>
+                    </div>
+
+                    <p class="text-zinc-400 border-l-2 border-[#daa520] pl-6 italic">
+                        "Dominio total en la línea de Mid y rotaciones clave que aseguraron la victoria final."
+                    </p>
                 </div>
             </div>
-        </div>
         </div>
     </section>
-    <section id="featured-team" class="section featured-team">
-        <h2><i class="fa-solid fa-users"></i> Equipos Inscritos</h2>
+    -->
 
-        <div class="team-wrapper">
+    <section id="featured-team" class="py-24 bg-zinc-900/20">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="font-orbitron text-2xl mb-12 text-center flex items-center justify-center gap-4">
+                <i class="fa-solid fa-users text-[#ff4655]"></i> EQUIPOS INSCRITOS
+            </h2>
 
-            <!-- EQUIPO CONFIRMADO -->
-            <div class="team-card confirmed" id="team-galacticos">
-                <div class="team-image">
-                    <img src="img/galacticos.jpg" alt="Los Galácticos">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!--
+                <div id="team-galacticos" class="glass-card rounded-xl overflow-hidden group">
+                    <div class="h-40 overflow-hidden bg-black">
+                        <img src="img/galacticos.jpg"
+                            class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-orbitron text-white mb-1">LOS GALÁCTICOS</h3>
+                        <span class="text-[#00ffd5] text-[11px] font-bold block mb-4 italic">👑 Capitán HC:
+                            STRIKE</span>
+                        <ul class="text-[12px] space-y-2 text-zinc-400 border-t border-zinc-800 pt-4">
+                            <li class="flex justify-between font-medium"><span class="text-zinc-600">OFFLANE</span> JAIR
+                            </li>
+                            <li class="flex justify-between font-medium"><span class="text-zinc-600">MIDLANE</span>
+                                CHAMAKO THE PERRO</li>
+                            <li class="flex justify-between font-medium"><span class="text-zinc-600">HARDSUPP</span>
+                                SLAYER</li>
+                            <li class="flex justify-between font-medium"><span class="text-zinc-600">SUPPORT</span>
+                                PONCE</li>
+                            <li class="flex justify-between border-t border-zinc-800 pt-2 text-white italic"><span
+                                    class="text-zinc-600 font-normal">STANDING</span> COVID69</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="team-body">
-                    <h3 class="team-names">LOS GALÁCTICOS</h3>
-                    <span class="captain">👑 Capitán HC: STRIKE</span>
-
-                    <ul class="team-roles">
-                        <li><span>OFFLANE</span> JAIR</li>
-                        <li><span>MIDLANE</span> CHAMAKO THE PERRO</li>
-                        <li><span>HARDSUPPORT</span> SLAYER</li>
-                        <li><span>SUPPORT</span> PONCE</li>
-                        <li class="standing"><span>STANDING</span> COVID69</li>
-                    </ul>
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <div class="h-40 bg-black"><img src="img/default.jpg" class="w-full h-full object-contain"></div>
+                    <div class="p-6">
+                        <h3 class="font-orbitron text-white mb-1">DEJA TU PLATA CASERO</h3>
+                        <span class="text-[#00ffd5] text-[11px] block mb-4 italic">👑 Capitán HS: PAVLSINHO</span>
+                        <ul class="text-[12px] space-y-2 text-zinc-400 border-t border-zinc-800 pt-4">
+                            <li class="flex justify-between"><span>OFFLANE</span> TRAVIAN</li>
+                            <li class="flex justify-between"><span>MIDLANE</span> CRISTOPHER</li>
+                            <li class="flex justify-between"><span>HARD CARRY</span> EDSON</li>
+                            <li class="flex justify-between"><span>SUPPORT</span> HÉCTOR</li>
+                            <li class="flex justify-between border-t border-zinc-800 pt-2 italic"><span>STANDING</span>
+                                TBD</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <div class="h-40 bg-black"><img src="img/team3.jpg" class="w-full h-full object-contain"></div>
+                    <div class="p-6">
+                        <h3 class="font-orbitron text-white mb-1 text-sm">THE KCHEROS D PAVL</h3>
+                        <span class="text-[#00ffd5] text-[11px] block mb-4 italic">👑 Cap Courier: LARYKNOW</span>
+                        <ul class="text-[12px] space-y-2 text-zinc-400 border-t border-zinc-800 pt-4">
+                            <li class="flex justify-between"><span>OFFLANE</span> LUCKY-Strike</li>
+                            <li class="flex justify-between"><span>MIDLANE</span> BILLYMON</li>
+                            <li class="flex justify-between"><span>HARDSUPP</span> KALITOCOCA</li>
+                            <li class="flex justify-between"><span>SUPPORT</span> ANONIMO</li>
+                            <li class="flex justify-between border-t border-zinc-800 pt-2 italic text-white">
+                                <span>STANDING</span> MAYRO
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+-->
+                <div
+                    class="border border-dashed border-zinc-800 rounded-xl flex flex-col items-center justify-center p-8 text-zinc-700">
+                    <i class="fa-solid fa-plus text-3xl mb-3"></i>
+                    <p class="font-orbitron text-xs tracking-widest uppercase">Esperando Equipo</p>
+                </div>
+                <div
+                    class="border border-dashed border-zinc-800 rounded-xl flex flex-col items-center justify-center p-8 text-zinc-700">
+                    <i class="fa-solid fa-plus text-3xl mb-3"></i>
+                    <p class="font-orbitron text-xs tracking-widest uppercase">Esperando Equipo</p>
+                </div>
+                <div
+                    class="border border-dashed border-zinc-800 rounded-xl flex flex-col items-center justify-center p-8 text-zinc-700">
+                    <i class="fa-solid fa-plus text-3xl mb-3"></i>
+                    <p class="font-orbitron text-xs tracking-widest uppercase">Esperando Equipo</p>
+                </div>
+                <div
+                    class="border border-dashed border-zinc-800 rounded-xl flex flex-col items-center justify-center p-8 text-zinc-700">
+                    <i class="fa-solid fa-plus text-3xl mb-3"></i>
+                    <p class="font-orbitron text-xs tracking-widest uppercase">Esperando Equipo</p>
+                </div>
+
             </div>
-
-            <!-- EQUIPO TBD 1 -->
-            <div class="team-card confirmed">
-                <div class="team-image">
-                    <img src="img/default.jpg" alt="Equipo TBD">
-                </div>
-
-                <div class="team-body">
-                    <h3 class="team-names">DEJA TU PLATA CASERO</h3>
-                    <span class="captain">👑 Capitán HS: PAVLSINHO</span>
-
-                    <ul class="team-roles">
-                        <li><span>OFFLANE</span> TRAVIAN</li>
-                        <li><span>MIDLANE</span> CRISTOPHER</li>
-                        <li><span>HARD CARRY</span> EDSON</li>
-                        <li><span>SUPPORT</span> HÉCTOR</li>
-                        <li class="standing"><span>STANDING</span> TBD</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- EQUIPO TBD 2 -->
-            <div class="team-card confirmed">
-                <div class="team-image">
-                    <img src="img/team3.jpg" alt="Equipo TBD">
-                </div>
-
-                <div class="team-body">
-                    <h3 class="team-names">THE KCHEROS D PAVL</h3>
-                    <span class="captain">👑 Capitán Courier: LARYKNOW</span>
-
-                    <ul class="team-roles">
-                        <li><span>OFFLANE</span> LUCKY-Strike</li>
-                        <li><span>MIDLANE</span> BILLYMON</li>
-                        <li><span>HARDSUPPORT</span> KALITOCOCA</li>
-                        <li><span>SUPPORT</span> ANONIMO</li>
-                        <li class="standing"><span>STANDING</span> MAYRO</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- EQUIPO TBD 3 -->
-            <div class="team-card tbd">
-                <div class="team-image">
-                    <img src="img/team-placeholder.png" alt="Equipo TBD">
-                </div>
-
-                <div class="team-body">
-                    <h3>TBD</h3>
-                    <span class="captain">👑 Capitán: TBD</span>
-
-                    <ul class="team-roles">
-                        <li><span>OFFLANE</span> TBD</li>
-                        <li><span>MIDLANE</span> TBD</li>
-                        <li><span>HARDSUPPORT</span> TBD</li>
-                        <li><span>SUPPORT</span> TBD</li>
-                        <li class="standing"><span>STANDING</span> TBD</li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
     </section>
 
-
-
-
-
-    <section class="section rules">
-        <h2><i class="fa-solid fa-book"></i> Reglas del Torneo</h2>
-
-        <div class="rules-list">
-            <ul>
-                <li><strong>Formato:</strong> Single Elimination</li>
-                <li><strong>Modo:</strong> Captains Mode BO3</li>
-                <li><strong>Versión:</strong> Última versión estable de Dota 2</li>
-                <li><strong>Prohibido:</strong> Cheats, smurfing, conducta tóxica</li>
-                <li><strong>Check-in:</strong> 30 minutos antes del inicio</li>
+    <section class="py-24 max-w-4xl mx-auto px-4">
+        <h2 class="font-orbitron text-2xl mb-12 text-center flex items-center justify-center gap-4">
+            <i class="fa-solid fa-book text-[#ff4655]"></i> REGLAS DEL TORNEO
+        </h2>
+        <div class="glass p-8 md:p-12 rounded-3xl">
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <li class="flex gap-3 text-zinc-300"><span class="text-[#00ffd5]">▶</span> <strong>Formato:</strong>
+                    Eliminación Directa</li>
+                <li class="flex gap-3 text-zinc-300"><span class="text-[#00ffd5]">▶</span> <strong>Modo:</strong>
+                    Modo Capitán BO3</li>
+                <li class="flex gap-3 text-zinc-300"><span class="text-[#00ffd5]">▶</span> <strong>Versión:</strong>
+                    Última estable Dota 2</li>
+                <li class="flex gap-3 text-zinc-300"><span class="text-[#00ffd5]">▶</span> <strong>Prohibido:</strong>
+                    Cheats, smurfing, toxicidad</li>
+                <li class="flex gap-3 text-zinc-300"><span class="text-[#00ffd5]">▶</span> <strong>Check-in:</strong> 30
+                    min antes del inicio</li>
             </ul>
         </div>
     </section>
 
-    <section class="stream" id="stream-section">
-        <h2>Transmisión Oficial</h2>
-
-        <div class="stream-preview live">
-            <iframe src="https://player.kick.com/yanstrike?autoplay=false" allow="fullscreen" allowfullscreen
-                frameborder="0">
-            </iframe>
+    <section id="stream-section" class="py-24 px-4 text-center max-w-5xl mx-auto">
+        <h2 class="font-orbitron text-3xl mb-12 text-white">TRANSMISIÓN OFICIAL</h2>
+        <div class="aspect-video glass p-2 rounded-3xl mb-10">
+            <iframe src="https://player.kick.com/yanstrike?autoplay=false" class="w-full h-full rounded-2xl"
+                allowfullscreen></iframe>
         </div>
-
-        <a href="https://kick.com/yanstrike" target="_blank" class="btn primary">
-            <i class="fa-solid fa-play"></i> Ver en Kick
+        <a href="https://kick.com/yanstrike" target="_blank"
+            class="inline-flex items-center gap-3 bg-[#a4ff00] text-black font-bold px-10 py-4 rounded-full hover:scale-105 transition-transform font-orbitron text-sm">
+            <i class="fa-solid fa-play"></i> VER EN KICK
         </a>
     </section>
 
-    <footer>
-        <span>© SirStrike 2026</span>
+    <footer class="py-12 border-t border-zinc-900 text-center">
+        <p class="text-zinc-600 text-xs tracking-[0.2em] font-medium uppercase">
+            © <span class="text-[#00ffd5]">SirStrike</span> 2026 • Torneo de Leyendas TNG
+        </p>
     </footer>
-    <script src="/script.js"></script>
 
-
+    <script src="script.js"></script>
 </body>
-
 
 </html>
