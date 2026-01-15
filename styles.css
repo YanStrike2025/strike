@@ -29,7 +29,7 @@ body {
 
 /* Efectos de Cristal */
 .glass {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.123);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -37,7 +37,7 @@ body {
 .glass-card {
     background: rgba(18, 18, 22, 0.7);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(241, 241, 241, 0.1);
     transition: all 0.3s ease;
 }
 
