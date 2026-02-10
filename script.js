@@ -14,7 +14,6 @@ document.querySelectorAll(".team").forEach(team => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-
     const modal = document.getElementById("modalForm");
     const openBtn = document.getElementById("openForm");
     const closeBtn = document.querySelector(".close");
